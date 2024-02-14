@@ -1,12 +1,19 @@
-[window]
+live_config_reload = true
 
+[window]
 opacity = 0.9
+title = "Terminal"
 
 [font]
-
 normal.family = "Iosevka Fixed"
 bold.family = "Iosevka Fixed"
 italic.family = "Iosevka Fixed"
 bold_italic.family = "Iosevka Fixed"
-
 size = 15.0
+
+[cursor]
+style = {  blinking = "Always" }
+
+[colors.cursor]
+cursor = "#e6e600"
+
