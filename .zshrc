@@ -1,2 +1,2 @@
-PS1="%* %n@%1d "
+PS1="%* %1d "
 source ~/.zsh_aliases
