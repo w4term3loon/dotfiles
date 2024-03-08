@@ -1,1 +1,2 @@
-testfile:testop:testdest
+testfile:symlink:testdest
+badfile:badop:baddest
