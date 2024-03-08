@@ -1,0 +1,5 @@
+.zshrc:symlink:
+.tmux.conf:symlink:
+nvim/init.vim:symlink:.config
+alacritty/alacritty.toml:symlink:.config
+

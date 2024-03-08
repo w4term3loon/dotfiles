@@ -1,21 +1,43 @@
-#!/bin/sh
+#!/bin/bash
 
 script_dir="$( cd "$(dirname "${BASH_SOURCE[0]}" )" && pwd)"
 
-# $1=filename
-# $2=destination
 deploy_symlink() {
-    origin="$script_dir/$1"
-    deploy="$HOME/$2/$1"
 
-    echo "[LOG] creating parent directory for $1"
-    # mkdir -p $( dirname $deploy )
+	filename=$1
+	destination=$2
+
+    origin="$script_dir/$filename"
+    deploy="$HOME/$destination/$filename" # todo: eliminate //
+
+	if [[ ! -e "$origin" ]]; then
+		echo "[ERROR] $origin does not exist and will result in a broken pipe" && exit 1
+	fi		
+
+	mkdir -p $( dirname $deploy )
+
+	if [[ -L "$deploy" ]]; then
+		echo "[LOG] symbolic link $deploy exists, skipping"
+	else
+		if [[ -e "$deploy" ]]; then
+			echo "[ERROR] $deploy exists but not a symbolic link" && exit 1
+		else
+			ln -s "$origin" "$deploy"
+			echo "[OK] $origin -> $deploy" 
+		fi
+	fi
 }
 
-# $1=manifest
 manifest() {
+
+	manifest="$1"
+
+	if [[ ! -e "manifest/$manifest" ]]; then
+		echo "[ERROR] manifest called $manifest does not exist" && exit 1
+	fi
+
     line=0
-    for row in $( cat "$script_dir/$1"); do
+    for row in $( cat "$script_dir/manifest/$manifest" ); do
 
         # parse manifest file
         filename=$( echo $row | cut -d \: -f 1 )
@@ -27,8 +49,8 @@ manifest() {
                 deploy_symlink $filename $destination
                 ;;
             *)
-                echo "[WARNING] unknown operation \"$operation\" in $1 manifest:$line"
-                echo "[LOG] $( if $BASH_VERSIONecho -e '\u21B3' ) skipping $filename"
+                echo "[WARNING] $manifest:$line unknown operation \"$operation\" \
+skipping $filename"
                 ;;
         esac
         line=${line+1}
@@ -36,6 +58,7 @@ manifest() {
 }
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-    echo $script_dir
     manifest linux
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+	manifest mac
 fi
