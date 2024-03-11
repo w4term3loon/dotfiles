@@ -1,4 +1,4 @@
 .tmux.conf:symlink:
 nvim/init.vim:symlink:.config
 nvim/ftplugin/markdown.vim:symlink:.config
-::: alacritty needs to be added
+.clang-format:symlink:

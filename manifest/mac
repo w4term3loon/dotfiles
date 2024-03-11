@@ -3,4 +3,5 @@
 nvim/init.vim:symlink:.config
 nvim/ftplugin/markdown.vim:symlink:.config
 alacritty/alacritty.toml:symlink:.config
+.clang-format:symlink:
 
