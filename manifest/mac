@@ -1,7 +1,6 @@
 .zshrc:symlink:
 .tmux.conf:symlink:
 nvim/init.vim:symlink:.config
-nvim/ftdetect/markdown.vim:symlink:.config
 nvim/ftplugin/markdown.vim:symlink:.config
 alacritty/alacritty.toml:symlink:.config
 
