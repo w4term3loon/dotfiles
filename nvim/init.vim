@@ -10,9 +10,6 @@ set expandtab
 set smartindent
 colorscheme habamax
 
-nnoremap pv :Vex<CR>
-nnoremap <space><CR> :so %<CR>
-
 nmap <c-k> :wincmd k<CR>
 nmap <c-j> :wincmd j<CR>
 nmap <c-h> :wincmd h<CR>
