@@ -1,4 +1,5 @@
 .tmux.conf:symlink:
+.vimrc:symlink:
 nvim/init.vim:symlink:.config
 nvim/ftplugin/markdown.vim:symlink:.config
 .clang-format:symlink:
