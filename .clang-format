@@ -1,4 +1,3 @@
----
-BasedOnStyle:  LLVM
+BasedOnStyle: LLVM
 IndentWidth: 4
-...
+AlwaysBreakAfterReturnType: All
