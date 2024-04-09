@@ -9,7 +9,7 @@ normal.family = "Iosevka Fixed"
 bold.family = "Iosevka Fixed"
 italic.family = "Iosevka Fixed"
 bold_italic.family = "Iosevka Fixed"
-size = 15.0
+size = 20.0
 
 [cursor]
 style = {  blinking = "Always" }
