@@ -14,6 +14,3 @@ size = 20.0
 [cursor]
 style = {  blinking = "Always" }
 
-[colors.cursor]
-cursor = "#e6e600"
-
