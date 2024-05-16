@@ -14,8 +14,11 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   "folke/tokyonight.nvim",
-  -- "nvim-treesitter/nvim-treesitter",
-  -- "williamboman/mason.nvim",
-  -- "nvim-cmp",
-  -- "neovim/nvim-lspconfig",
+  "nvim-treesitter/nvim-treesitter",
+  "williamboman/mason.nvim",
+  "williamboman/mason-lspconfig.nvim",
+  "L3MON4D3/LuaSnip",
+  "neovim/nvim-lspconfig",
+  "hrsh7th/nvim-cmp",
+  "hrsh7th/cmp-nvim-lsp",
 })

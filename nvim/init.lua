@@ -1,6 +1,9 @@
--- TODO: restructure into lua/options.lua
-vim.cmd("source ~/.vimrc")
-
+require("options")
+require("keymaps")
 require("plugins")
 require("colorscheme")
+require("treesitter")
+require("masons")
+require("lsp")
+require("cmper")
 

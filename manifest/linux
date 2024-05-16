@@ -1,7 +1,12 @@
 .tmux.conf:symlink:
 .vimrc:symlink:
 nvim/init.lua:symlink:.config
-nvim/lua/colorscheme.lua:symlink:.config
+nvim/lua/options.lua:symlink:.config
+nvim/lua/keymaps.lua:symlink:.config
 nvim/lua/plugins.lua:symlink:.config
+nvim/lua/masons.lua:symlink:.config
+nvim/lua/colorscheme.lua:symlink:.config
+nvim/lua/treesitter.lua:symlink:.config
 nvim/lua/lsp.lua:symlink:.config
+nvim/lua/cmper.lua:symlink:.config
 .clang-format:symlink:
