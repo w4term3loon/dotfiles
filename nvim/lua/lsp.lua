@@ -1,6 +1,26 @@
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
---[[ require("lspconfig").clangd.setup({
+-- mappings
+local opts = { noremap=true, silent=true }
+vim.api.nvim_set_keymap('n', ',e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
+vim.api.nvim_set_keymap('n', ',q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
+vim.api.nvim_set_keymap('n', 'ge', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
+vim.api.nvim_set_keymap('n', 'gE', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
+
+local on_attach = function(client, bufnr)
+    _ = client
+    -- Enable completion triggered by <c-x><c-o>
+    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+    -- Mappings.
+    -- See `:help vim.lsp.*` for documentation on any of the below functions
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+  end
+
+require("lspconfig").clangd.setup({
   cmd = {
     "clangd",
     "-j=4",
@@ -14,14 +34,18 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
     "--completion-style=detailed",
     "--header-insertion-decorators",
   },
+  on_attach = on_attach,
   filetypes = { "c", "cpp" },
   root_dir = require("lspconfig").util.root_pattern(".git"),
   init_option = { fallbackFlags = { "-std=c99" }, },
   capabilities = capabilities,
-}) ]]--
+})
+
 
 require("lspconfig").lua_ls.setup({
+  on_attach = on_attach,
   capabilities = capabilities,
+  root_dir = require("lspconfig").util.root_pattern(".git"),
   settings = {
     Lua = {
       diagnostics = {
@@ -29,6 +53,5 @@ require("lspconfig").lua_ls.setup({
       },
     },
   },
-  root_dir = require("lspconfig").util.root_pattern(".git"),
 })
 
