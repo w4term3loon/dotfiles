@@ -1,16 +1,22 @@
 live_config_reload = true
 
 [window]
-opacity = 0.9
+opacity = 0.95
 title = "Terminal"
+dynamic_title = true
 
 [font]
 normal.family = "Iosevka Fixed"
 bold.family = "Iosevka Fixed"
 italic.family = "Iosevka Fixed"
 bold_italic.family = "Iosevka Fixed"
-size = 20.0
+size = 18.0
 
 [cursor]
 style = {  blinking = "Always" }
 
+[env]
+TERM = "alactritty"
+
+[scrolling]
+history = 100000
