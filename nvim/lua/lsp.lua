@@ -1,6 +1,6 @@
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-require("lspconfig").clangd.setup({
+--[[ require("lspconfig").clangd.setup({
   cmd = {
     "clangd",
     "-j=4",
@@ -14,9 +14,11 @@ require("lspconfig").clangd.setup({
     "--completion-style=detailed",
     "--header-insertion-decorators",
   },
-  filetypes = {"c", "cpp"},
+  filetypes = { "c", "cpp" },
+  root_dir = require("lspconfig").util.root_pattern(".git"),
+  init_option = { fallbackFlags = { "-std=c99" }, },
   capabilities = capabilities,
-})
+}) ]]--
 
 require("lspconfig").lua_ls.setup({
   capabilities = capabilities,
