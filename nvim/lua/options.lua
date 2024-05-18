@@ -1,6 +1,8 @@
-vim.opt.clipboard = 'unnamedplus'   -- use system clipboard 
+vim.opt.clipboard = 'unnamedplus'   -- use system clipboard
 vim.opt.mouse = 'a'                 -- allow the mouse to be used in Nvim
 vim.opt.swapfile = false            -- don't create swapfiles
+vim.opt.backup = false
+vim.opt.smartindent = true
 
 -- Tab
 vim.opt.tabstop = 2                 -- number of visual spaces per TAB
@@ -16,8 +18,10 @@ vim.opt.cursorline = true           -- highlight cursor line underneath the curs
 vim.opt.splitbelow = true           -- open new vertical split bottom
 vim.opt.splitright = true           -- open new horizontal splits right
 vim.opt.termguicolors = true        -- enabl 24-bit RGB color in the TUI
-vim.opt.showmode = true             -- we are experienced, wo don't need the "-- INSERT --" mode hint
 vim.opt.scrolloff = 8               -- scroll after cursor
+vim.opt.colorcolumn = "100"--80     -- cutoff line
+vim.opt.signcolumn = "yes"          -- always show the signal column, prevent jumpy
+vim.opt.updatetime = 50
 
 -- Searching
 vim.opt.incsearch = true            -- search as characters are entered

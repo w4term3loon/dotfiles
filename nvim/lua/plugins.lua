@@ -13,7 +13,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  "folke/tokyonight.nvim",
+  "ellisonleao/gruvbox.nvim",
   "nvim-treesitter/nvim-treesitter",
   "williamboman/mason.nvim",
   "williamboman/mason-lspconfig.nvim",

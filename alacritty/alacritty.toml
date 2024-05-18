@@ -1,9 +1,15 @@
 live_config_reload = true
 
 [window]
-opacity = 0.95
+opacity = 0.90
+blur = true
 title = "Terminal"
 dynamic_title = true
+decorations = "full"
+
+[window.padding]
+x = 10
+y = 10
 
 [font]
 normal.family = "Iosevka Fixed"
@@ -16,7 +22,9 @@ size = 18.0
 style = {  blinking = "Always" }
 
 [env]
-TERM = "alactritty"
+TERM = "xterm-256color"
+# install terminfo to use
+# TERM = "alactritty"
 
 [scrolling]
 history = 100000
