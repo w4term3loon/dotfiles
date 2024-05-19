@@ -1,1 +1,3 @@
-dotfiles for tools that I regularly use.
+My dotfiles with a stow-like script.
+
+    $ ./deploy/deploy.sh

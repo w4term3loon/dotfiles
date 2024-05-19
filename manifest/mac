@@ -1,6 +1,7 @@
 .zshrc:symlink:
 .tmux.conf:symlink:
 .vimrc:symlink:
+.p10k.zsh:symlink:
 nvim/lazy-lock.json:symlink:.config
 nvim/lua/options.lua:symlink:.config
 nvim/lua/keymaps.lua:symlink:.config

@@ -5,7 +5,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-PS1="%* %1d "
+# set aliases
 source ~/.zsh_aliases
 
 if [[ -f "/opt/homebrew/bin/brew" ]] then
@@ -45,7 +45,6 @@ setopt appendhistory
 setopt sharehistory
 setopt hist_ignore_space
 setopt hist_ignore_all_dups
-setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 
@@ -54,3 +53,4 @@ bindkey -e
 bindkey '^k' history-search-backward
 bindkey '^j' history-search-forward
 bindkey '^[w' kill-region
+
