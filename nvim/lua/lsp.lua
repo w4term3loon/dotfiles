@@ -7,6 +7,9 @@ vim.api.nvim_set_keymap('n', ',q', '<cmd>lua vim.diagnostic.setloclist()<CR>', o
 vim.api.nvim_set_keymap('n', 'ge', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
 vim.api.nvim_set_keymap('n', 'gE', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
 
+-- format
+vim.api.nvim_set_keymap('n', ',f', '<cmd>lua vim.lsp.buf.format()<CR>', opts)
+
 local on_attach = function(client, bufnr)
     _ = client
     -- Enable completion triggered by <c-x><c-o>
@@ -36,8 +39,7 @@ require("lspconfig").clangd.setup({
   },
   on_attach = on_attach,
   filetypes = { "c", "cpp" },
-  root_dir = require("lspconfig").util.root_pattern(".git"),
-  init_option = { fallbackFlags = { "-std=c99" }, },
+  root_dir = require("lspconfig").util.root_pattern("src"),
   capabilities = capabilities,
 })
 
