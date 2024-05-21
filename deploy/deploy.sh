@@ -58,8 +58,12 @@ skipping $filename"
     done
 }
 
+# deploy common
+manifest common
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    # linux specific
     manifest linux
 elif [[ "$OSTYPE" == "darwin"* ]]; then
+    # mac specific
     manifest mac
 fi

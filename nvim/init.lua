@@ -6,4 +6,4 @@ require("treesitter")
 require("masons")
 require("lsp")
 require("cmper")
-
+require("autopairs")

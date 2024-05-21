@@ -15,6 +15,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   "ellisonleao/gruvbox.nvim",
   "nvim-treesitter/nvim-treesitter",
+  "windwp/nvim-autopairs",
   "williamboman/mason.nvim",
   "williamboman/mason-lspconfig.nvim",
   "L3MON4D3/LuaSnip",
