@@ -28,3 +28,9 @@ TERM = "xterm-256color"
 
 [scrolling]
 history = 100000
+
+[keyboard]
+bindings = [
+  { key = "Right", mods = "Alt",      chars = "\u001BF" },
+  { key = "Left",  mods = "Alt",      chars = "\u001BB" },
+]
