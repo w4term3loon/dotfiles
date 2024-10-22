@@ -43,7 +43,6 @@ require("lspconfig").clangd.setup({
   capabilities = capabilities,
 })
 
-
 require("lspconfig").lua_ls.setup({
   on_attach = on_attach,
   capabilities = capabilities,
@@ -63,6 +62,11 @@ require("lspconfig").gopls.setup({
 })
 
 require("lspconfig").cmake.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+})
+
+require("lspconfig").rust_analyzer.setup({
   on_attach = on_attach,
   capabilities = capabilities,
 })
