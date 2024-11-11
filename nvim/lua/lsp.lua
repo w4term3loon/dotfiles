@@ -38,7 +38,7 @@ require("lspconfig").clangd.setup({
     "--header-insertion-decorators",
   },
   on_attach = on_attach,
-  filetypes = { "c", "cpp" },
+  filetypes = { "c", "cpp", "cc" },
   root_dir = require("lspconfig").util.root_pattern("src"),
   capabilities = capabilities,
 })
