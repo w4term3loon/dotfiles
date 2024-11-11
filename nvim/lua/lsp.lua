@@ -38,7 +38,7 @@ require("lspconfig").clangd.setup({
     "--header-insertion-decorators",
   },
   on_attach = on_attach,
-  filetypes = { "c", "cpp" },
+  filetypes = { "c", "cpp", "cc" },
   root_dir = require("lspconfig").util.root_pattern("src"),
   capabilities = capabilities,
 })
@@ -55,15 +55,5 @@ require("lspconfig").lua_ls.setup({
       },
     },
   },
-})
-
-require("lspconfig").gopls.setup({
-  on_attach = on_attach,
-  capabilities = capabilities,
-})
-
-require("lspconfig").cmake.setup({
-  on_attach = on_attach,
-  capabilities = capabilities,
 })
 
