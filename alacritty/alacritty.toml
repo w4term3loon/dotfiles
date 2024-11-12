@@ -1,30 +1,35 @@
+[general]
 live_config_reload = true
-
-[window]
-opacity = 0.90
-blur = true
-title = "Terminal"
-dynamic_title = true
-decorations = "full"
-
-[window.padding]
-x = 10
-y = 10
-
-[font]
-normal.family = "Iosevka Fixed"
-bold.family = "Iosevka Fixed"
-italic.family = "Iosevka Fixed"
-bold_italic.family = "Iosevka Fixed"
-size = 18.0
-
-[cursor]
-style = {  blinking = "Always" }
 
 [env]
 TERM = "xterm-256color"
 # install terminfo to use
 # TERM = "alactritty"
+
+[window]
+title = "Terminal"
+decorations = "full"
+dynamic_title = false
+opacity = 0.90
+blur = true
+
+[window.padding]
+x = 10
+y = 10
+
+[window.dimensions]
+columns = 120
+lines = 30
+
+[font]
+normal.family = "IosevkaNerdFont"
+bold.family = "IosevkaNerdFont"
+italic.family = "IosevkaNerdFont"
+bold_italic.family = "IosevkaNerdFont"
+size = 18.0
+
+[cursor]
+style = {  blinking = "Always" }
 
 [scrolling]
 history = 100000
