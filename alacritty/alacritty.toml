@@ -22,10 +22,10 @@ columns = 120
 lines = 30
 
 [font]
-normal.family = "IosevkaNerdFont"
-bold.family = "IosevkaNerdFont"
-italic.family = "IosevkaNerdFont"
-bold_italic.family = "IosevkaNerdFont"
+normal.family = "Iosevka"
+bold.family = "Iosevka"
+italic.family = "Iosevka"
+bold_italic.family = "Iosevka"
 size = 18.0
 
 [cursor]
