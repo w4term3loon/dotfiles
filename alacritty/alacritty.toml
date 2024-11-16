@@ -7,7 +7,7 @@ TERM = "xterm-256color"
 title = "Terminal"
 decorations = "full"
 dynamic_title = false
-opacity = 0.90
+opacity = 0.95
 blur = true
 
 [window.padding]
