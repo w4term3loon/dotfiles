@@ -1,11 +1,21 @@
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+local function quickfix()
+    vim.lsp.buf.code_action({
+        filter = function(a) return a.isPreferred end,
+        apply = true
+    })
+end
+
 -- mappings
 local opts = { noremap = true, silent = true }
 vim.api.nvim_set_keymap('n', ',e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
 vim.api.nvim_set_keymap('n', ',q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
 vim.api.nvim_set_keymap('n', 'ge', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
 vim.api.nvim_set_keymap('n', 'gE', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
+
+-- quickfix
+vim.keymap.set('n', ',qf', quickfix, opts)
 
 -- format
 vim.api.nvim_set_keymap('n', ',f', '<cmd>lua vim.lsp.buf.format()<CR>', opts)
