@@ -32,8 +32,6 @@ local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
 
-  -- inlay_hint enable
-  vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
 end
 
 require("lspconfig").clangd.setup({
