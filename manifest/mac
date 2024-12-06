@@ -1,2 +1,3 @@
+minimal.zsh:symlink:.config
+dircolors:symlink:.config
 .zshrc:symlink:
-.p10k.zsh:symlink:
