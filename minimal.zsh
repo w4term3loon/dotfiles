@@ -45,7 +45,7 @@ function mnml_cwd {
     local segments="${1:-2}"
     local seg_len="${2:-0}"
 
-    local _w="%{\e[0m%}"
+    local _w="%{\e[38;5;244m%}"
     local _g="%{\e[38;5;244m%}"
 
     if [ "$segments" -le 0 ]; then
