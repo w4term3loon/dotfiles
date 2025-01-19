@@ -9,6 +9,6 @@ require("mason").setup({
 })
 
 require("mason-lspconfig").setup({
-  ensure_installed = { "lua_ls", "clangd", "gopls", "cmake", "rust_analyzer", "pylsp" },
+  ensure_installed = { "lua_ls", "clangd", "gopls", "cmake", "rust_analyzer", "clojure_lsp" },
   automatic_installation = true
 })

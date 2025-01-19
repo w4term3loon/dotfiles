@@ -37,6 +37,7 @@ else
   zstyle ':completion:*:default' list-colors ''
 fi
 
+# attach tmux session if exists
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
   tmux new-session -A -s main
 fi

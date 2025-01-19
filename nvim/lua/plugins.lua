@@ -23,4 +23,9 @@ require("lazy").setup({
   "hrsh7th/nvim-cmp",
   "hrsh7th/cmp-nvim-lsp",
   "lervag/vimtex",
- })
+  "Olical/conjure",
+  "guns/vim-sexp",
+  "tpope/vim-sexp-mappings-for-regular-people",
+  "tpope/vim-repeat",
+  "tpope/vim-surround",
+})
