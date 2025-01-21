@@ -77,15 +77,15 @@ require("lspconfig").cmake.setup({
   capabilities = capabilities,
 })
 
--- require("lspconfig").pylsp.setup({
---   on_attach = on_attach,
---   capabilities = capabilities,
---   plugins = {
---     mypy = {
---       enabled = true,
---     },
---   }
--- })
+require("lspconfig").pyright.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+})
+
+require("lspconfig").bashls.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+})
 
 require("lspconfig").rust_analyzer.setup({
   on_attach = on_attach,

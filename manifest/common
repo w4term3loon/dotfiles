@@ -1,6 +1,7 @@
 .clang-format:symlink:
 .tmux.conf:symlink:
 .vimrc:symlink:
+helix/config.toml:symlink:.config
 nvim/init.lua:symlink:.config
 nvim/lazy-lock.json:symlink:.config
 nvim/lua/options.lua:symlink:.config

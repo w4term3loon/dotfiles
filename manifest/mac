@@ -1,3 +1,2 @@
 minimal.zsh:symlink:.config
-dircolors:symlink:.config
 .zshrc:symlink:
