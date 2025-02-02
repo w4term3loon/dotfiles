@@ -1,3 +1,4 @@
+# https://github.com/subnixr/minimal
 # Global settings
 MNML_OK_COLOR="${MNML_OK_COLOR:-2}"
 MNML_ERR_COLOR="${MNML_ERR_COLOR:-1}"
