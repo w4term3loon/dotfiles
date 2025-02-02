@@ -43,6 +43,10 @@ M.on_attach = function(client, bufnr)
     buf_map("n", "<leader>f", function()
       vim.lsp.buf.format({ async = true })
     end, { desc = "Format buffer" })
+
+    buf_map("v", "<leader>f", function()
+      vim.lsp.buf.format({ async = true })
+    end, { desc = "Format range" })
   end
 
   -- lsp specific keybindings
