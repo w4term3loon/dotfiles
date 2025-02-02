@@ -2,7 +2,7 @@
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(args)
     local buf_name = vim.api.nvim_buf_get_name(args.buf)
-    vim.notify("LSP attached to buffer: " .. (buf_name ~= "" and buf_name or "[No Name]"))
+    -- vim.notify("LSP attached to buffer: " .. (buf_name ~= "" and buf_name or "[No Name]"))
   end,
 })
 

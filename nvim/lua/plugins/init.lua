@@ -1,21 +1,21 @@
 -- fetch lazypath
-  local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-    vim.fn.system({
-        "git", "clone", "--filter=blob:none",
-        "https://github.com/folke/lazy.nvim.git", lazypath
-    })
+  vim.fn.system({
+    "git", "clone", "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git", lazypath
+  })
 end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   "ellisonleao/gruvbox.nvim",
 
-  {-- load luasnips + cmp related in insert mode only
+  { -- load luasnips + cmp related in insert mode only
     "hrsh7th/nvim-cmp",
     event = "InsertEnter",
     dependencies = {
-      {-- snippet plugin
+      { -- snippet plugin
         "L3MON4D3/LuaSnip",
         dependencies = "rafamadriz/friendly-snippets",
         opts = { history = true, updateevents = "TextChanged,TextChangedI" },
@@ -25,7 +25,7 @@ require("lazy").setup({
         end,
       },
 
-      {-- autopairing of (){}[] etc
+      { -- autopairing of (){}[] etc
         "windwp/nvim-autopairs",
         opts = {
           fast_wrap = {},
@@ -40,7 +40,7 @@ require("lazy").setup({
         end,
       },
 
-      {-- cmp sources plugins
+      { -- cmp sources plugins
         "saadparwaiz1/cmp_luasnip",
         "hrsh7th/cmp-nvim-lua",
         "hrsh7th/cmp-nvim-lsp",
@@ -53,7 +53,7 @@ require("lazy").setup({
     end,
   },
 
-  {-- file managing , picker etc
+  { -- file managing , picker etc
     "nvim-tree/nvim-tree.lua",
     cmd = { "NvimTreeToggle", "NvimTreeFocus" },
     opts = function()
@@ -61,7 +61,7 @@ require("lazy").setup({
     end,
   },
 
-  {-- git stuff
+  { -- git stuff
     "lewis6991/gitsigns.nvim",
     event = { "BufReadPost", "BufNewFile" },
     opts = function()
@@ -69,14 +69,14 @@ require("lazy").setup({
     end,
   },
 
-  {-- installer
+  { -- installer
     "williamboman/mason.nvim",
     opts = function()
       return require("configs.mason-conf")
     end,
   },
 
-  {-- lsp
+  { -- lsp
     "neovim/nvim-lspconfig",
     event = { "BufReadPost", "BufNewFile" },
     config = function()
@@ -84,7 +84,7 @@ require("lazy").setup({
     end,
   },
 
-  {-- fuzzy finder
+  { -- fuzzy finder
     "nvim-telescope/telescope.nvim",
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     cmd = "Telescope",
@@ -93,7 +93,7 @@ require("lazy").setup({
     end,
   },
 
-  {-- treesitter
+  { -- treesitter
     "nvim-treesitter/nvim-treesitter",
     event = { "BufReadPost", "BufNewFile" },
     cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
