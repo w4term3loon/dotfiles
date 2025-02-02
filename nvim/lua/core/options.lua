@@ -48,3 +48,15 @@ local delim = is_windows and ";" or ":"
 vim.env.PATH = table.concat({
 	vim.fn.stdpath "data", "mason", "bin"
 	}, sep) .. delim .. vim.env.PATH
+
+-- statusbar - good if you don't want to use a plugin.
+local statusline = {
+  '%t',
+  ' %r',
+  '%m',
+  '%=',
+  '[%{&filetype}]',
+  ' %2p%%',
+  ' %3l:%-2c '
+}
+vim.o.statusline = table.concat(statusline, '')

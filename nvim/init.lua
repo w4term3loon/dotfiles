@@ -6,4 +6,4 @@ require("core.keymaps")
 require("plugins.init")
 
 -- Theme
-require("configs.theme")
+require("configs.theme-conf")

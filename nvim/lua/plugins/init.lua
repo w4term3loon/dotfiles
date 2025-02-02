@@ -21,7 +21,7 @@ require("lazy").setup({
         opts = { history = true, updateevents = "TextChanged,TextChangedI" },
         config = function(_, opts)
           require("luasnip").config.set_config(opts)
-          require "configs.luasnip"
+          require("configs.luasnip-conf")
         end,
       },
 
@@ -49,7 +49,7 @@ require("lazy").setup({
       },
     },
     opts = function()
-      require("configs.cmp")
+      return require("configs.cmp-conf")
     end,
   },
 
@@ -57,22 +57,22 @@ require("lazy").setup({
     "nvim-tree/nvim-tree.lua",
     cmd = { "NvimTreeToggle", "NvimTreeFocus" },
     opts = function()
-      require("configs.nvimtree")
+      return require("configs.nvimtree-conf")
     end,
   },
 
   {-- git stuff
     "lewis6991/gitsigns.nvim",
-    event = "User FilePost",
+    event = { "BufReadPost", "BufNewFile" },
     opts = function()
-      -- require "configs.gitsigns"
+      return require("configs.gitsigns-conf")
     end,
   },
 
   {-- installer
     "williamboman/mason.nvim",
     opts = function()
-      require("configs.mason")
+      return require("configs.mason-conf")
     end,
   },
 
@@ -80,7 +80,7 @@ require("lazy").setup({
     "neovim/nvim-lspconfig",
     event = { "BufReadPost", "BufNewFile" },
     config = function()
-      require("configs.lsp").defaults()
+      require("configs.lsp-conf").defaults()
     end,
   },
 
@@ -89,7 +89,7 @@ require("lazy").setup({
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     cmd = "Telescope",
     opts = function()
-      require("configs.telescope")
+      return require("configs.telescope-conf")
     end,
   },
 
@@ -99,7 +99,7 @@ require("lazy").setup({
     cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
     build = ":TSUpdate",
     opts = function()
-      require("configs.treesitter")
+      return require("configs.treesitter-conf")
     end,
     config = function(_, opts)
       require("nvim-treesitter.configs").setup(opts)
