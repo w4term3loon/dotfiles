@@ -8,7 +8,7 @@ startup_mode = "Maximized"
 title = "Terminal"
 decorations = "full"
 dynamic_title = false
-opacity = 0.95
+opacity = 1
 blur = true
 
 [window.padding]
@@ -20,10 +20,10 @@ columns = 130
 lines = 30
 
 [font]
-normal.family = "Iosevka"
-bold.family = "Iosevka"
-italic.family = "Iosevka"
-bold_italic.family = "Iosevka"
+normal.family = "Iosevka Nerd Font Mono"
+bold.family = "Iosevka Nerd Font Mono"
+italic.family = "Iosevka Nerd Font Mono"
+bold_italic.family = "Iosevka Nerd Font Mono"
 size = 18.0
 
 [cursor]
