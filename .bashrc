@@ -123,3 +123,5 @@ fi
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.local/go/bin"
 
+source ~/.local/bin/virtualenvwrapper.sh
+
