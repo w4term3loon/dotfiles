@@ -1,2 +1,2 @@
+minimal.zsh:symlink:.config
 .zshrc:symlink:
-.p10k.zsh:symlink:

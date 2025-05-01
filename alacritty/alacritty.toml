@@ -4,6 +4,7 @@ TERM = "xterm-256color"
 # TERM = "alactritty"
 
 [window]
+startup_mode = "Maximized"
 title = "Terminal"
 decorations = "full"
 dynamic_title = false
@@ -19,10 +20,10 @@ columns = 130
 lines = 30
 
 [font]
-normal.family = "IosevkaNerdFont"
-bold.family = "IosevkaNerdFont"
-italic.family = "IosevkaNerdFont"
-bold_italic.family = "IosevkaNerdFont"
+normal.family = "Iosevka"
+bold.family = "Iosevka"
+italic.family = "Iosevka"
+bold_italic.family = "Iosevka"
 size = 18.0
 
 [cursor]

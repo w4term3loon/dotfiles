@@ -1,10 +1,9 @@
-require("options")
-require("keymaps")
-require("plugins")
-require("colorscheme")
-require("treesitter")
-require("masons")
-require("lsp")
-require("cmper")
-require("autopairs")
+-- Core settings
+require("core.options")
+require("core.keymaps")
 
+-- Plugins
+require("plugins.init")
+
+-- Theme
+require("configs.theme-conf")
