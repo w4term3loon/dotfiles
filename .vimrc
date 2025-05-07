@@ -15,3 +15,5 @@ nmap <c-h> :wincmd h<CR>
 nmap <c-l> :wincmd l<CR>
 
 autocmd BufWritePre *.h,*.hpp,*.c,*.cpp %!clang-format
+
+au BufRead,BufNewFile *.g4 set filetype=antlr4
