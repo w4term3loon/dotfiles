@@ -116,12 +116,3 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# additional sources
-. "$HOME/.cargo/env"
-
-# add bin to path
-export PATH="$PATH:$HOME/.local/bin"
-export PATH="$PATH:$HOME/.local/go/bin"
-
-source ~/.local/bin/virtualenvwrapper.sh
-
