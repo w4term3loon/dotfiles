@@ -18,3 +18,5 @@ nvim/lua/configs/nvimtree-conf.lua:symlink:.config
 nvim/lua/configs/telescope-conf.lua:symlink:.config
 nvim/lua/configs/gitsigns-conf.lua:symlink:.config
 nvim/syntax/antlr4.vim:symlink:.config
+ghostty/themes/gruvbox-material-soft-dark:symlink:.config
+ghostty/config:symlink:.config

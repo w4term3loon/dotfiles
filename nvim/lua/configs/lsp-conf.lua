@@ -167,6 +167,7 @@ M.defaults = function()
     "pyright",
     "bashls",
     "clojure_lsp",
+    "html",
   }
 
   -- deafult configurations

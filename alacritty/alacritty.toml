@@ -3,6 +3,9 @@ TERM = "xterm-256color"
 # install terminfo to use
 # TERM = "alactritty"
 
+[terminal]
+osc52 = "OnlyCopy"
+
 [window]
 startup_mode = "Maximized"
 title = "Terminal"
