@@ -2,13 +2,16 @@ title = "ghostty"
 macos-icon = retro
 
 shell-integration = detect
-shell-integration-features = cursor
+shell-integration-features = no-cursor
 
 theme = gruvbox-material-soft-dark
 font-family = "iosevka-mono"
-font-size = 32
+font-size = 20
+font-feature = -calt
+font-feature = -liga
+font-feature = -dlig
 
-fullscreen = true
+maximize = true
 window-decoration = auto
 window-padding-x = 3
 window-padding-y = 3
