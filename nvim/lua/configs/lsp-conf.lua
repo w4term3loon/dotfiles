@@ -103,11 +103,10 @@ M.capabilities.textDocument.completion.completionItem = {
 }
 
 M.defaults = function()
-  require("lspconfig").lua_ls.setup({
+  vim.lsp.config("lua_ls", {
     on_attach = M.on_attach,
     capabilities = M.capabilities,
     on_init = M.on_init,
-    root_dir = require("lspconfig").util.root_pattern(".git"),
     settings = {
       Lua = {
         diagnostics = { globals = { "vim" } },
@@ -124,8 +123,9 @@ M.defaults = function()
       },
     },
   })
+  vim.lsp.enable("lua_ls")
 
-  require("lspconfig").clangd.setup({
+  vim.lsp.config("clangd", {
     cmd = {
       "clangd",
       "-j=4",
@@ -146,8 +146,9 @@ M.defaults = function()
     filetypes = { "c", "cpp", "cc" },
     root_dir = require("lspconfig").util.root_pattern("src"),
   })
+  vim.lsp.enable("clangd")
 
-  require("lspconfig").rust_analyzer.setup({
+  vim.lsp.config("rust_analyzer", {
     on_init = M.on_init,
     on_attach = M.on_attach,
     capabilities = M.capabilities,
@@ -160,6 +161,7 @@ M.defaults = function()
       }
     }
   })
+  vim.lsp.enable("rust_analyzer")
 
   local servers = {
     "gopls",
@@ -172,11 +174,12 @@ M.defaults = function()
 
   -- deafult configurations
   for _, server in ipairs(servers) do
-    require("lspconfig")[server].setup({
+    vim.lsp.config(server, {
       on_init = M.on_init,
       on_attach = M.on_attach,
       capabilities = M.capabilities,
     })
+    vim.lsp.enable(server)
   end
 end
 
