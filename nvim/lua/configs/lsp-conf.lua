@@ -1,7 +1,7 @@
 -- callback for lsp attach
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(args)
-    local buf_name = vim.api.nvim_buf_get_name(args.buf)
+    -- local buf_name = vim.api.nvim_buf_get_name(args.buf)
     -- vim.notify("LSP attached to buffer: " .. (buf_name ~= "" and buf_name or "[No Name]"))
   end,
 })
@@ -34,6 +34,9 @@ local function quickfix()
 end
 
 M.on_attach = function(client, bufnr)
+
+  vim.notify("LSP attached to " .. vim.api.nvim_buf_get_name(bufnr))
+
   local function buf_map(mode, lhs, rhs, map_opts)
     map(mode, lhs, rhs, vim.tbl_extend("force", { buffer = bufnr }, map_opts or {}))
   end
@@ -69,8 +72,8 @@ M.on_attach = function(client, bufnr)
 
   -- diagnostic keybindings
   buf_map("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostics in floating window" })
-  buf_map("n", "ge", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic" })
-  buf_map("n", "gE", vim.diagnostic.goto_next, { desc = "Go to next diagnostic" })
+  buf_map("n", "ge", function() vim.diagnostic.jump({count=1, float=true}) end, { desc = "Go to next diagnostic" })
+  buf_map("n", "gE", function() vim.diagnostic.jump({count=-1, float=true}) end, { desc = "Go to previous diagnostic" })
   buf_map("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Add diagnostics to location list" })
 
   -- quickfix (cheat)
@@ -123,9 +126,11 @@ M.defaults = function()
       },
     },
   })
+
   vim.lsp.enable("lua_ls")
 
   vim.lsp.config("clangd", {
+
     cmd = {
       "clangd",
       "-j=4",
@@ -138,14 +143,17 @@ M.defaults = function()
       "--function-arg-placeholders",
       "--completion-style=detailed",
       "--header-insertion-decorators",
+      "--compile-commands-dir=build"
     },
+
 
     on_init = M.on_init,
     on_attach = M.on_attach,
     capabilities = M.capabilities,
-    filetypes = { "c", "cpp", "cc" },
-    root_dir = require("lspconfig").util.root_pattern("src"),
+    filetypes = { "c", "cpp", "cc", "h", "hpp", "hh" },
+
   })
+
   vim.lsp.enable("clangd")
 
   vim.lsp.config("rust_analyzer", {

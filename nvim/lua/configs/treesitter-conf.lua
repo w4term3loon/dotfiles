@@ -27,6 +27,7 @@ return {
     "printf",
     "vimdoc",
     "make",
+    "cmake"
   },
 
   highlight = {
