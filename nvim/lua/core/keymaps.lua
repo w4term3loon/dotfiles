@@ -10,11 +10,10 @@ map("i", "<C-e>", "<End>", { desc = "move end of line" })
 -- map("i", "<C-k>", "<Up>", { desc = "move up" })
 
 -- window mobility
--- TODO
--- map("n", "<C-h>", "<C-w>h", { desc = "switch window left" })
--- map("n", "<C-l>", "<C-w>l", { desc = "switch window right" })
--- map("n", "<C-j>", "<C-w>j", { desc = "switch window down" })
--- map("n", "<C-k>", "<C-w>k", { desc = "switch window up" })
+map("n", "<C-h>", "<C-w>h", { desc = "switch window left" })
+map("n", "<C-l>", "<C-w>l", { desc = "switch window right" })
+map("n", "<C-j>", "<C-w>j", { desc = "switch window down" })
+map("n", "<C-k>", "<C-w>k", { desc = "switch window up" })
 
 -- clear all highlights
 map("n", "<Esc>", "<cmd>noh<CR>", { desc = "general clear highlights" })

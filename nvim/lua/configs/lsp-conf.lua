@@ -35,7 +35,7 @@ end
 
 M.on_attach = function(client, bufnr)
 
-  vim.notify("LSP attached to " .. vim.api.nvim_buf_get_name(bufnr))
+  -- vim.notify("SP attached to " .. vim.api.nvim_buf_get_name(bufnr))
 
   local function buf_map(mode, lhs, rhs, map_opts)
     map(mode, lhs, rhs, vim.tbl_extend("force", { buffer = bufnr }, map_opts or {}))

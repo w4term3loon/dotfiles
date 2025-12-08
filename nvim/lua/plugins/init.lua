@@ -9,6 +9,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+
   "ellisonleao/gruvbox.nvim",
 
   { -- load luasnips + cmp related in insert mode only
@@ -61,11 +62,24 @@ require("lazy").setup({
     end,
   },
 
-  { -- git stuff
+  { -- git signs
     "lewis6991/gitsigns.nvim",
     event = { "BufReadPost", "BufNewFile" },
     opts = function()
       return require("configs.gitsigns-conf")
+    end,
+  },
+
+  { -- git blame
+   "FabijanZulj/blame.nvim",
+    opts = function()
+      return {
+        date_format = "%Y.%b.%d",
+        focus_blame = false,
+        views = {
+            default = require("blame.views.virtual_view"),
+        },
+      }
     end,
   },
 
