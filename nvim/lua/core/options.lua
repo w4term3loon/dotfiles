@@ -7,9 +7,9 @@ opt.backup = false              -- don't backup
 opt.smartindent = true
 
 -- tab
-opt.tabstop = 2                 -- number of visual spaces per TAB
-opt.softtabstop = 2             -- number of spacesin tab when editing
-opt.shiftwidth = 2              -- insert 4 spaces on a tab
+opt.tabstop = 4                 -- number of visual spaces per TAB
+opt.softtabstop = 4             -- number of spacesin tab when editing
+opt.shiftwidth = 4              -- insert 4 spaces on a tab
 opt.expandtab = true            -- tabs are spaces, mainly because of python
 
 -- ui config
@@ -60,3 +60,14 @@ local statusline = {
   ' %3l:%-2c '
 }
 vim.o.statusline = table.concat(statusline, '')
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "lua",
+  callback = function()
+    vim.opt_local.tabstop = 2      -- visual width of tabs
+    vim.opt_local.shiftwidth = 2   -- indentation width
+    vim.opt_local.softtabstop = 2  -- editing behavior
+    vim.opt_local.expandtab = true -- use spaces instead of tabs
+  end,
+})
+

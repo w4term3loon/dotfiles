@@ -35,8 +35,6 @@ end
 
 M.on_attach = function(client, bufnr)
 
-  -- vim.notify("SP attached to " .. vim.api.nvim_buf_get_name(bufnr))
-
   local function buf_map(mode, lhs, rhs, map_opts)
     map(mode, lhs, rhs, vim.tbl_extend("force", { buffer = bufnr }, map_opts or {}))
   end
@@ -105,11 +103,21 @@ M.capabilities.textDocument.completion.completionItem = {
   },
 }
 
-M.defaults = function()
-  vim.lsp.config("lua_ls", {
-    on_attach = M.on_attach,
-    capabilities = M.capabilities,
-    on_init = M.on_init,
+M.opts = {}
+M.servers = {
+  "lua_ls",
+  "clangd",
+  "rust_analyzer",
+  "cmake",
+  "gopls",
+  "pyright",
+  "bashls",
+  "clojure_lsp",
+  "html",
+}
+
+M.configs = function()
+  M.opts.lua_ls = {
     settings = {
       Lua = {
         diagnostics = { globals = { "vim" } },
@@ -125,12 +133,9 @@ M.defaults = function()
         },
       },
     },
-  })
+  }
 
-  vim.lsp.enable("lua_ls")
-
-  vim.lsp.config("clangd", {
-
+  M.opts.clangd = {
     cmd = {
       "clangd",
       "-j=4",
@@ -146,20 +151,10 @@ M.defaults = function()
       "--compile-commands-dir=build"
     },
 
-
-    on_init = M.on_init,
-    on_attach = M.on_attach,
-    capabilities = M.capabilities,
     filetypes = { "c", "cpp", "cc", "h", "hpp", "hh" },
+  }
 
-  })
-
-  vim.lsp.enable("clangd")
-
-  vim.lsp.config("rust_analyzer", {
-    on_init = M.on_init,
-    on_attach = M.on_attach,
-    capabilities = M.capabilities,
+  M.opts.rust_analyzer =  {
     filetypes = { "rust" },
     settings = {
       ["rust-analyzer"] = {
@@ -168,26 +163,21 @@ M.defaults = function()
         },
       }
     }
-  })
-  vim.lsp.enable("rust_analyzer")
-
-  local servers = {
-    "gopls",
-    "cmake",
-    "pyright",
-    "bashls",
-    "clojure_lsp",
-    "html",
   }
 
-  -- deafult configurations
-  for _, server in ipairs(servers) do
-    vim.lsp.config(server, {
-      on_init = M.on_init,
-      on_attach = M.on_attach,
-      capabilities = M.capabilities,
-    })
-    vim.lsp.enable(server)
+  M.opts.cmake =  {
+    filetypes = {"cmake, CMakeLists.txt"}
+  }
+
+  local default_config = {
+    on_init = M.on_init,
+    on_attach = M.on_attach,
+    capabilities = M.capabilities,
+  }
+
+  for _, server in ipairs(M.servers) do
+    setmetatable(M.opts.server, { __index = default_config })
+    vim.lsp.config(server, M.opts.server)
   end
 end
 

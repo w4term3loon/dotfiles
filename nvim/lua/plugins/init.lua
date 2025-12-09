@@ -83,18 +83,34 @@ require("lazy").setup({
     end,
   },
 
-  { -- installer
-    "williamboman/mason.nvim",
-    opts = function()
-      return require("configs.mason-conf")
-    end,
-  },
-
   { -- lsp
-    "neovim/nvim-lspconfig",
-    event = { "BufReadPost", "BufNewFile" },
-    config = function()
-      require("configs.lsp-conf").defaults()
+    "williamboman/mason-lspconfig.nvim",
+    dependencies = {
+
+      {
+        "williamboman/mason.nvim",
+        opts = function()
+          return require("configs.mason-conf")
+        end,
+      },
+
+      {
+        "neovim/nvim-lspconfig",
+        event = { "BufReadPost", "BufNewFile" },
+        config = function()
+          return require("configs.lsp-conf").configs
+        end,
+      }
+    },
+
+    opts = function()
+      return {
+        ensure_installed = require("configs.lsp-conf").servers,
+        automatic_enable = true,
+        automatic_enabled = {
+          exclude = {}
+        },
+      }
     end,
   },
 
