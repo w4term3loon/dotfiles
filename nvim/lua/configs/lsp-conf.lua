@@ -103,7 +103,6 @@ M.capabilities.textDocument.completion.completionItem = {
   },
 }
 
-M.opts = {}
 M.servers = {
   "lua_ls",
   "clangd",
@@ -116,8 +115,11 @@ M.servers = {
   "html",
 }
 
-M.configs = function()
-  M.opts.lua_ls = {
+M.config = function()
+  vim.lsp.config("lua_ls", {
+    on_attach = M.on_attach,
+    capabilities = M.capabilities,
+    on_init = M.on_init,
     settings = {
       Lua = {
         diagnostics = { globals = { "vim" } },
@@ -133,9 +135,12 @@ M.configs = function()
         },
       },
     },
-  }
+  })
 
-  M.opts.clangd = {
+  vim.lsp.enable("lua_ls")
+
+  vim.lsp.config("clangd", {
+
     cmd = {
       "clangd",
       "-j=4",
@@ -151,10 +156,20 @@ M.configs = function()
       "--compile-commands-dir=build"
     },
 
-    filetypes = { "c", "cpp", "cc", "h", "hpp", "hh" },
-  }
 
-  M.opts.rust_analyzer =  {
+    on_init = M.on_init,
+    on_attach = M.on_attach,
+    capabilities = M.capabilities,
+    filetypes = { "c", "cpp", "cc", "h", "hpp", "hh" },
+
+  })
+
+  vim.lsp.enable("clangd")
+
+  vim.lsp.config("rust_analyzer", {
+    on_init = M.on_init,
+    on_attach = M.on_attach,
+    capabilities = M.capabilities,
     filetypes = { "rust" },
     settings = {
       ["rust-analyzer"] = {
@@ -163,21 +178,26 @@ M.configs = function()
         },
       }
     }
+  })
+  vim.lsp.enable("rust_analyzer")
+
+  local servers = {
+    "gopls",
+    "cmake",
+    "pyright",
+    "bashls",
+    "clojure_lsp",
+    "html",
   }
 
-  M.opts.cmake =  {
-    filetypes = {"cmake, CMakeLists.txt"}
-  }
-
-  local default_config = {
-    on_init = M.on_init,
-    on_attach = M.on_attach,
-    capabilities = M.capabilities,
-  }
-
-  for _, server in ipairs(M.servers) do
-    setmetatable(M.opts.server, { __index = default_config })
-    vim.lsp.config(server, M.opts.server)
+  -- deafult configurations
+  for _, server in ipairs(servers) do
+    vim.lsp.config(server, {
+      on_init = M.on_init,
+      on_attach = M.on_attach,
+      capabilities = M.capabilities,
+    })
+    vim.lsp.enable(server)
   end
 end
 

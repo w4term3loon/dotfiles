@@ -83,36 +83,35 @@ require("lazy").setup({
     end,
   },
 
-  { -- lsp
-    "williamboman/mason-lspconfig.nvim",
-    dependencies = {
-
-      {
-        "williamboman/mason.nvim",
-        opts = function()
-          return require("configs.mason-conf")
-        end,
-      },
-
-      {
-        "neovim/nvim-lspconfig",
-        event = { "BufReadPost", "BufNewFile" },
-        config = function()
-          return require("configs.lsp-conf").configs
-        end,
-      }
-    },
-
+  {
+    "williamboman/mason.nvim",
     opts = function()
-      return {
-        ensure_installed = require("configs.lsp-conf").servers,
-        automatic_enable = true,
-        automatic_enabled = {
-          exclude = {}
-        },
-      }
+      return require("configs.mason-conf")
     end,
   },
+
+  {
+    "neovim/nvim-lspconfig",
+    event = { "BufReadPost", "BufNewFile" },
+    config = function()
+      return require("configs.lsp-conf").config()
+    end,
+  },
+
+  -- TODO
+  -- { -- mason-lsp
+  --   "williamboman/mason-lspconfig.nvim",
+  --
+  --   opts = function()
+  --     return {
+  --       ensure_installed = require("configs.lsp-conf").servers,
+  --       automatic_enable = true,
+  --       automatic_enabled = {
+  --         exclude = {}
+  --       },
+  --     }
+  --   end,
+  -- },
 
   { -- fuzzy finder
     "nvim-telescope/telescope.nvim",
