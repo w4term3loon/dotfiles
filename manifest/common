@@ -1,7 +1,6 @@
-.clang-format:symlink:
 .tmux.conf:symlink:
-.vimrc:symlink:
-helix/config.toml:symlink:.config
+ghostty/themes/gruvbox-material-soft-dark:symlink:.config
+ghostty/config:symlink:.config
 nvim/init.lua:symlink:.config
 nvim/lazy-lock.json:symlink:.config
 nvim/lua/core/options.lua:symlink:.config
@@ -17,6 +16,3 @@ nvim/lua/configs/luasnip-conf.lua:symlink:.config
 nvim/lua/configs/nvimtree-conf.lua:symlink:.config
 nvim/lua/configs/telescope-conf.lua:symlink:.config
 nvim/lua/configs/gitsigns-conf.lua:symlink:.config
-nvim/syntax/antlr4.vim:symlink:.config
-ghostty/themes/gruvbox-material-soft-dark:symlink:.config
-ghostty/config:symlink:.config

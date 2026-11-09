@@ -1,2 +1,0 @@
-alacritty/alacritty.toml:symlink:.config
-.bashrc:symlink:
